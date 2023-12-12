@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import TaskLayout from "./TaskLayout";
+import Tasks from "./pages/Tasks";
+import Projects from "./pages/Projects";
+import AuthPage from "./pages/auth/AuthPage";
+import CreateTask from "./pages/tasks/CreateTask";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="auth" element={<AuthPage />} />
+        <Route path="/" element={<TaskLayout />}>
+          <Route path="projects" element={<Projects />} />
+          <Route path="tasks" element={<Tasks />} />
+          <Route path="tasks/create" element={<CreateTask />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
