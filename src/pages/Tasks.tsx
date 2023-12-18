@@ -1,28 +1,27 @@
-import React from "react";
-import Task from "../components/Task";
-import SingleProject from "../components/SingleProject";
-import Button from "../components/Button";
+import React, { useContext, useEffect, useState } from "react";
+import { Task } from "../model/task";
+import OneTask from "../components/OneTask";
+import { getAllTasks } from "../service/taskApi";
 
 const Tasks = () => {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await getAllTasks();
+      console.log(response);
+      setTasks(response);
+    };
+    fetchData();
+  }, []);
   return (
     <div className="h-full flex flex-1 space-x-7">
-      <div className="w-1/5 shadow-md flex flex-col bg-zinc-200 p-4 rounded-lg space-y-2">
-        <SingleProject />
-        <SingleProject />
-        <SingleProject />
-        <SingleProject />
-        <SingleProject />
-        <SingleProject />
-      </div>
       <div className="flex flex-col w-full bg-zinc-200 rounded-lg shadow-md p-4">
         <div>
           <a href="tasks/create">Create Task</a>
         </div>
-        <Task />
-        <Task />
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task, index) => {
+          return <OneTask key={index} label={task.title} id={task.id} />;
+        })}
       </div>
     </div>
   );

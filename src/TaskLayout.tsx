@@ -26,13 +26,6 @@ const TaskLayout = () => {
             );
           })}
         </div>
-        <div className="flex items-center space-x-3">
-          <div>
-            <h1 className="normal-case text-sm">
-              Welcome, <span className="text-zinc-400">Ulvis Dulbergs</span>
-            </h1>
-          </div>
-        </div>
       </nav>
       <div className="h-full p-7 flex flex-col">
         <Outlet />

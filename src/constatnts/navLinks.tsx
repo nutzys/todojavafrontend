@@ -1,11 +1,11 @@
 export const navLinks = [
   {
-    id: 1,
-    title: "Projects",
-    to: "projects",
+    id: 2,
+    title: "Create",
+    to: "tasks/create",
   },
   {
-    id: 2,
+    id: 1,
     title: "Tasks",
     to: "tasks",
   },
