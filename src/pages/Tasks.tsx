@@ -16,9 +16,6 @@ const Tasks = () => {
   return (
     <div className="h-full flex flex-1 space-x-7">
       <div className="flex flex-col w-full bg-zinc-200 rounded-lg shadow-md p-4">
-        <div>
-          <a href="tasks/create">Create Task</a>
-        </div>
         {tasks.map((task, index) => {
           return <OneTask key={index} label={task.title} id={task.id} />;
         })}
